@@ -1,0 +1,31 @@
+{
+	"description": "radar - ClanSoftware",
+	"name": "radar",
+	"type": "project",
+	"authors": [
+		{
+			"name": "Roesler Lucimar",
+			"role": "Developer"
+		}
+	],
+	"homepage": "https://clansoftware.com.br",
+	"license": "MIT",
+	"support": {
+		"wiki": "https://github.com/clansoftware/radar",		
+		"source": "https://github.com/clansoftware/radar"
+	},
+	"require": {
+		"twbs/bootstrap":"^3.0",
+		"firebase/php-jwt": "^5.0",
+		"components/jquery":"^3.2",
+		"datatables/datatables":"1.10.19",
+		"nnnick/chartjs":"2.9.3"
+	},
+	"require-dev": {
+		"twbs/bootstrap":"^3.0",
+		"firebase/php-jwt": "^5.0",
+		"components/jquery":"^3.2",
+		"datatables/datatables":"1.10.19",
+		"nnnick/chartjs":"2.9.3"
+	}	
+}

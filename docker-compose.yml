@@ -1,0 +1,12 @@
+version: "2.0"
+services:
+  php:
+     build: './IaC/php/'
+     volumes:
+       - ./:/var/www/html/
+  apache:
+    build: './IaC/apache/'
+    ports:
+      - 80:80
+    volumes:
+      - ./:/var/www/html/
