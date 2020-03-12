@@ -5,7 +5,7 @@
 
     $.ajax({
         type: 'GET',
-        url: 'core.php',
+        url: 'core-example.php',
         crossDomain: true,
         dataType: 'json',
         beforeSend: aguardaValores,

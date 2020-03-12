@@ -30,30 +30,30 @@ class Core {
 
 	public static $jwt = null;
 	public static $token = null;
-    //public static $wsdl = 'http://api.pesquisatudo.com.br:5001/';
+	public static $wsdl = 'http://api.pesquisatudo.com.br:5001/';
 	
 	/**
 	 * @param $token [String]
 	 * @param $jwt [String]
 	 * @param $debug [bool]
 	*/
-    function __construct($token=null, $jwt=Null, $debug=False) {
-    	try {
-	    	if ($debug) {
+	function __construct($token=null, $jwt=Null, $debug=False) {
+		try {
+			if ($debug) {
 				ini_set('display_errors', 1);
 				ini_set('display_startup_errors', 1);
 				error_reporting(E_ALL);
-	    	}
-	    	if (is_null($token) || is_null($jwt)) {
-	    		throw new Exception("Token e JWT são obrigatórios !", 1);
-	    	} else {
-	    		self::$jwt = $jwt;
-	    		self::$token = $token;
-	    	}
-    	} catch (Exception $e) {
-    		return '['.$e->getCode().']'.$e->getMessage();
-    	}
-    }
+			}
+			if (is_null($token) || is_null($jwt)) {
+				throw new Exception("Token e JWT são obrigatórios !", 1);
+			} else {
+				self::$jwt = $jwt;
+				self::$token = $token;
+			}
+		} catch (Exception $e) {
+			return '['.$e->getCode().']'.$e->getMessage();
+		}
+	}
 
 	/**
 	 * @see Responsável por executar uma requisição ao servidor PesquisaTudo
@@ -61,26 +61,17 @@ class Core {
 	 * @param [Array] $sites: 'icetran', 'tecnodata', 'simead', 'itt', 'ibacbrasil'
 	 * @author Santos L. Victor
 	*/
-	public function getPrinces($dtInit=null, $dtEnd=null, $sites=array(), $ufs=array()) {
+	public function getPrices($dtInit=null, $dtEnd=null, $sites=array(), $ufs=array()) {
 		try {
 			$data = array();
-			if(!is_null($dtInit))
-				$data['dtInit'] = $dtInit;
-
-			if(!is_null($dtEnd))
-				$data['dtEnd'] = strtoupper($dtEnd);
-
-			if(!empty($sites))
-				$data['sites'] = strtoupper($sites);
-
-			if(!empty($ufs))
-				$data['ufs'] = strtoupper($ufs);
+			$data['token'] = self::$token;
+			$data['jwt'] = self::$jwt;
+			$data['retorno'] = 'Json';//retirar se for utilizar o formato powerBI
 
 			$jwtCode = JWT::encode($data, self::$jwt);
 			
 			$response = array();
 			$ch = curl_init();
-
 			curl_setopt( $ch, CURLOPT_URL, self::$wsdl.'radar?jwt='.$jwtCode );
 			curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 			$response = curl_exec( $ch );
@@ -94,5 +85,7 @@ class Core {
 	}
 }
 $core = new Core('<seu token>', '<seu jwt>');
-echo json_encode($core->getPrinces());
+
+
+echo json_encode($core->getPrices());
 ?>
