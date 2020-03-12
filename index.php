@@ -59,13 +59,6 @@ include "vendor/autoload.php";
 					</div>
 				</footer>
 
-		<!-- <div class="footer">
-			<p>
-				<a title="Is ao Site" href="https://clansoftware.com.br" target="_blank">
-					<img src="assets/img/logo-clansoftware.jpeg" />
-				</a>
-			</p>
-		</div> -->
 		<script src="vendor/components/jquery/jquery.js?v=<?=VERSION;?>"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js?v=<?=VERSION;?>"> </script>
 		<script src="assets/js/script.js?v=<?=VERSION;?>"></script>

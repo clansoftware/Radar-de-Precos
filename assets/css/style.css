@@ -42,13 +42,17 @@ canvas#icetran{
    text-align: center;
 }
 .social_icon li{
-  list-style-type: none;
-  float: left;
-  margin: 10px;
-  font-size: 20px;
-  padding: 15px;
+ list-style-type: none;
+ float: left;
+ margin: 10px;
+ font-size: 20px;
+ padding: 15px;
 }
 .social_icon li a i{
- color:white;
+  color:white;
 }
 
+.social_icon li a i:hover{
+ color:#2E64FE;
+ transition: .5s;
+}
