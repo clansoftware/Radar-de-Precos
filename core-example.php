@@ -66,13 +66,16 @@ class Core {
 			$data = array();
 			$data['token'] = self::$token;
 			$data['jwt'] = self::$jwt;
-			$data['retorno'] = 'Json';//retirar se for utilizar o formato powerBI
+			$data['retorno'] = 'Json';//retirar se for utilizar o formato PowerBI
 
+//Json';
 			$jwtCode = JWT::encode($data, self::$jwt);
-			
+			//     die(self::$wsdl.'radar?jwt='.$jwtCode);//pra gerar a url
 			$response = array();
 			$ch = curl_init();
-			curl_setopt( $ch, CURLOPT_URL, self::$wsdl.'radar?jwt='.$jwtCode );
+			curl_setopt($ch, CURLOPT_URL, self::$wsdl.'radar?jwt='.$jwtCode );
+
+
 			curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
 			$response = curl_exec( $ch );
 			if( curl_errno($ch) ){
