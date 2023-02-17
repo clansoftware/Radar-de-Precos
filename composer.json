@@ -16,14 +16,14 @@
 	},
 	"require": {
 		"twbs/bootstrap":"^3.0",
-		"firebase/php-jwt": "^5.0",
+		"firebase/php-jwt": "^6.0",
 		"components/jquery":"^3.2",
 		"datatables/datatables":"1.10.19",
 		"nnnick/chartjs":"2.9.3"
 	},
 	"require-dev": {
 		"twbs/bootstrap":"^3.0",
-		"firebase/php-jwt": "^5.0",
+		"firebase/php-jwt": "^6.0",
 		"components/jquery":"^3.2",
 		"datatables/datatables":"1.10.19",
 		"nnnick/chartjs":"2.9.3"
